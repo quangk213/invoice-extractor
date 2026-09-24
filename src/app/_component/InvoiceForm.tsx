@@ -13,7 +13,7 @@ export default function InvoiceForm({ image }: Props) {
     if (!image) {
       return;
     }
-    const worker = await createWorker("vi");
+    const worker = await createWorker("vie", 1);
     const ret = await worker.recognize(image);
     setText(ret.data.text);
     await worker.terminate;
@@ -27,7 +27,7 @@ export default function InvoiceForm({ image }: Props) {
       >
         Extract image
       </button>
-      {text && <p>{text}</p>}
+      {text && <p className="break-all">{text}</p>}
     </div>
   );
 }
